@@ -4,6 +4,10 @@
 # build notes
 Set up environment:
 ```sh
+# for running tests
+sudo apt-get update
+sudo apt-get install libgtest-dev
+
 mkdir build
 cd build && cmake ..
 ```
