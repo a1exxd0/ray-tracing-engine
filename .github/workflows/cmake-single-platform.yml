@@ -24,7 +24,7 @@ jobs:
           /usr/local/lib/libbenchmark_main.a
         key: ${{ runner.os }}-google-benchmark-${{ hashFiles('**/CMakeLists.txt') }}
         restore-keys: |
-          ${{ runner.os }}-google-benchmark-
+          ${{ runner.os }}-google-benchmark-${{ hashFiles('**/CMakeLists.txt') }}
 
       # Install dependencies
     - name: Install gtest dependency
