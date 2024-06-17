@@ -18,7 +18,10 @@ jobs:
     - name: Cache Google Benchmark
       uses: actions/cache@v2
       with:
-        path: /usr/local
+        path: |
+          /usr/local/include
+          /usr/local/lib/libbenchmark.a
+          /usr/local/lib/libbenchmark_main.a
         key: ${{ runner.os }}-google-benchmark-${{ hashFiles('**/CMakeLists.txt') }}
         restore-keys: |
           ${{ runner.os }}-google-benchmark-
