@@ -21,6 +21,6 @@ target_link_libraries(point_class_tests ${GTEST_LIBRARIES} pthread)
 add_test(NAME point_class_tests COMMAND point_class_tests)
 
 # Add benchmark executable
-add_executable(benchmark_main ${CMAKE_SOURCE_DIR}/benchmark/benchmark_main.cpp)
-target_link_libraries(benchmark_main benchmark::benchmark)
-add_test(NAME run_benchmarks COMMAND benchmark_main)
+add_executable(rte_benchmark_main ${CMAKE_SOURCE_DIR}/rte_benchmark/rte_benchmark_main.cpp)
+target_link_libraries(rte_benchmark_main benchmark::benchmark)
+add_test(NAME run_benchmarks COMMAND rte_benchmark_main)
