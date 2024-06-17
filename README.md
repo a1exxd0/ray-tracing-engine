@@ -11,6 +11,7 @@ sudo apt-get install libgtest-dev
 mkdir build
 cd build && cmake ..
 ```
+Install [Google Benchmark](https://github.com/google/benchmark). 
 Then you have 2 options for builds:
 ```sh
 # ensure you are in build directory
