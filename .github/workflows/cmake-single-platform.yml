@@ -2,11 +2,7 @@
 # See: https://github.com/actions/starter-workflows/blob/main/ci/cmake-multi-platform.yml
 name: CMake on a single platform
 
-on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+on: [push, pull_request]
 
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
@@ -26,10 +22,10 @@ jobs:
     - name: Cache Google Benchmark
       uses: actions/cache@v2
       with:
-        path: |
-          ${{github.workspace}}/benchmark/build
-        key:
-          ${{ runner.os }}-benchmark-build-${{ hashFiles('**/CMakeLists.txt') }}
+        path: /usr/local  # Adjust this path according to where Google Benchmark is installed
+        key: ${{ runner.os }}-google-benchmark-${{ hashFiles('**/CMakeLists.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-google-benchmark-
 
       # Install dependencies
     - name: Install gtest dependency
@@ -37,11 +33,7 @@ jobs:
 
     - name: Build Google Benchmark
       run: |
-        if [ -d "${{github.workspace}}/benchmark/build" ]; then
-          echo "Using cached build for Google Benchmark"
-          cd benchmark
-          sudo cmake --build "build" --config Release --target install
-        else
+        if ! command -v benchmark_main; then
           git clone https://github.com/google/benchmark.git
           cd benchmark
           cmake -E make_directory "build"
