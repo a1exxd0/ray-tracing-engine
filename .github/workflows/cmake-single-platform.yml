@@ -26,10 +26,10 @@ jobs:
     - name: Install gtest dependency
       run: sudo apt-get update && sudo apt-get install -y cmake libgtest-dev
     - name: Clone benchmark repository and make build directory
-      run: git clone https://github.com/google/benchmark.git && cd benchmark && cmake -E make_directory "build"
+      run: cd benchmark && cmake -E make_directory "build"
     - name: Build the benchmark repository and install
       run: cmake -DCMAKE_BUILD_TYPE=Release -S . -B "build" && sudo cmake --build "build" --config Release --target install
-      
+
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
