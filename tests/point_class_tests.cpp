@@ -2,7 +2,7 @@
 #include <gtest/gtest.h>
 #include "point3.h"
 
-TEST(Point_Class_Test, Add_Colors) {
+TEST(Point_Class_Test, Add_Points) {
     // Arrange
     rte::point3 expected(20.0, 50.0, 100.0);
     // Act
@@ -14,7 +14,7 @@ TEST(Point_Class_Test, Add_Colors) {
     EXPECT_EQ(result, expected);
 }
 
-TEST(Point_Class_Test, Multiply_Colors) {
+TEST(Point_Class_Test, Multiply_Points) {
     // Arrange
     rte::point3 expected(20.0, 50.0, 100.0);
     // Act
