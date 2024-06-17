@@ -39,7 +39,7 @@ jobs:
       run: |
         if [ -d "${{github.workspace}}/benchmark/build" ]; then
           echo "Using cached build for Google Benchmark"
-          cd benchmark/build
+          cd benchmark
           sudo cmake --build "build" --config Release --target install
         else
           git clone https://github.com/google/benchmark.git
