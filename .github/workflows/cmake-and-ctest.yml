@@ -36,7 +36,7 @@ jobs:
     - name: Build Google Benchmark
       run: |
         if [ -d "benchmark" ]; then
-          cd benchmark/build
+          cd benchmark
           sudo cmake --build "build" --config Release --target install
         else
           git clone https://github.com/google/benchmark.git
